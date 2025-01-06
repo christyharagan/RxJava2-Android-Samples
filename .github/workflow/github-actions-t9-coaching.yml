@@ -3,7 +3,7 @@ name: "Tabnine PR review agent"
 on:
   pull_request:
     branches:
-      - main
+      - demo
         
 permissions:
   contents: read
