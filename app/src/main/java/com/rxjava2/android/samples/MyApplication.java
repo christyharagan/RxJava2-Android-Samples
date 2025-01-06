@@ -29,6 +29,13 @@ public class MyApplication extends Application {
         return bus;
     }
 
+    public void sendAutoEventSlower() {
+        Observable.timer(20, TimeUnit.SECONDS)
+                .subscribe(aLong -> bus.send(new Events.AutoEvent()));
+                    }
+                });
+    }
+
     public void sendAutoEvent() {
         Observable.timer(2, TimeUnit.SECONDS)
                 .subscribe(new Consumer<Long>() {
