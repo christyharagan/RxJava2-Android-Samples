@@ -39,4 +39,10 @@ public class MyApplication extends Application {
                 });
     }
 
+    public void sendAutoEventLonger() {
+        Observable.timer(20, TimeUnit.SECONDS)
+                .subscribe(aLong -> bus.send(new Events.AutoEvent()));
+                    }
+                });
+    }
 }
