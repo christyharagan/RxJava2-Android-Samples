@@ -41,10 +41,7 @@ public class MyApplication extends Application {
 
     public void sendAutoEventLonger() {
         Observable.timer(20, TimeUnit.SECONDS)
-                .subscribe(new Consumer<Long>() {
-                    @Override
-                    public void accept(Long aLong) {
-                        bus.send(new Events.AutoEvent());
+                .subscribe(aLong -> bus.send(new Events.AutoEvent()));
                     }
                 });
     }
