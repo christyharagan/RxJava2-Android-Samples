@@ -39,4 +39,13 @@ public class MyApplication extends Application {
                 });
     }
 
+    public void sendAutoEventSlower() {
+        Observable.timer(200, TimeUnit.SECONDS)
+                .subscribe(new Consumer<Long>() {
+                    @Override
+                    public void accept(Long aLong) {
+                        bus.send(new Events.AutoEvent());
+                    }
+                });
+    }
 }
